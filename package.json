@@ -4,13 +4,16 @@
   "description": "Social Wires es una red social que busca facilitar en un espacio publicaciones de personas con el fin de expresar lo que gusten en la red.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Santiago Martinez <santimartz12@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "express-validator": "^6.15.0"
+    "express-validator": "^6.15.0",
+    "sqlite3": "^5.1.4"
   }
 }
