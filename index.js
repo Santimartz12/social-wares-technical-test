@@ -1,8 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const sqlite3 = require('sqlite3').verbose();
 
 const db = new sqlite3.Database('./data/database.db');
+
+//Para poder trabajar con Angular
+app.use(cors());
 
 // Para poder los datos que nos envie el usuario en tipo JSON 
 app.use( express.json() );

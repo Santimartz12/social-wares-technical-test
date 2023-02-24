@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
+const { getUser } = require('../controllers/getUser');
 
 const { LoginUser } = require('../controllers/login');
 const { RegisterUser } = require('../controllers/register');
@@ -24,6 +25,13 @@ router.post('/login',
     check('password', "La constraseña es obligatoria").isLength({min: 6}),
 ],
 LoginUser);
+
+// * Para conseguir la informacion del usuario
+router.get('/users', 
+[ //Validamos los datos obligatorios
+    check('user_id', "Se necesita la id del usuario").isNumeric(),
+],
+getUser);
 
 
 module.exports = router;
