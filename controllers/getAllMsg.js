@@ -42,7 +42,6 @@ const getAllMsg = (req, res) => {
         }
 
         if (req.query.time) {
-            console.log(req.query.time);
             query += ' AND time >= ?';
             values.push(req.query.time);
         }
