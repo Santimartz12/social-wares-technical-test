@@ -1,36 +1,17 @@
 const { Router } = require('express');
+const { createMsg } = require('../controllers/createMsg');
+const { getAllMsg } = require('../controllers/getAllMsg');
 
 const router = Router();
 
 
 // Publicar mensaje de usuario
-router.post('/create', ( req, res ) => {
+router.post('/create', createMsg);
 
-    const mensaje = "Hola Mundo";
-    const hora = new Date();
-    const uid = 1;
-    
-    console.log(mensaje,hora,uid);
-    
-    
-    console.log('Estoy funcionando');
-    db.run(`INSERT INTO messages (message, time, user_id) VALUES (?, ?, ?)`, [mensaje, hora, uid], (error) => {
-        if (error) {
-           console.log(error.message);
-        } else {
-           console.log('Mensaje guardado en la base de datos.');
-        }
-     });
-    console.log('Estoy Ya lo envie');
+router.get('/', getAllMsg);
 
-    return res.json({
-        ok: true,
-        msg: 'Mensaje publicado'
-    });
-});
 
-//Todo: Ver todos los mensajes
-//Todo: Ver mensajes del usuario
+
 //Todo: Editar mensajes del usuario
 
 

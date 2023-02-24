@@ -1,26 +1,16 @@
 const { Router } = require('express');
-const sqlite3 = require('sqlite3').verbose();
+
+const { LoginUser } = require('../controllers/login');
+const { RegisterUser } = require('../controllers/register');
 
 const router = Router();
 
-const db = new sqlite3.Database('./data/database.db');
 
-// Crear un nuevo usuario
-router.post('/register', ( req, res ) => {
-    return res.json({
-        ok: true,
-        msg: 'Usuario creado exitosamente'
-    });
-});
+//* Crear un nuevo usuario
+router.post('/register', RegisterUser);
 
-// Login de usuario
-router.post('/login', ( req, res ) => {
-
-    return res.json({
-        ok: true,
-        msg: 'Login exitoso'
-    });
-});
+//* Login de usuario
+router.post('/login', LoginUser);
 
 
 module.exports = router;
